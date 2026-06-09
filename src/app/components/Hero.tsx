@@ -28,23 +28,23 @@ export default function Hero() {
       >
         <div className="relative">
           <p
-            className="relative bg-[#FBF7FC] text-[#2d0340] max-w-[420px] px-[4px] py-[0px] ml-[36px] mr-[0px] mt-[74px] mb-[0px]"
+            className="relative bg-[#FBF7FC] text-[#2d0340] max-w-[520px] px-[4px] py-[0px] ml-[40px] mr-[0px] mt-[74px] mb-[0px]"
             style={{
               fontFamily: "Fredoka, sans-serif",
               fontSize: "clamp(14px, 2.3vw, 44px)",
               lineHeight: 1.38,
             }}
           >
-          {/* Pink highlight — only behind the first line */}
-          <div
-            className="absolute bg-[#d369b8] opacity-25 rounded-xs mx-[16px] my-[0px] px-[2px] py-[0px]"
-            style={{
-              left: "-4%",
-              top: "0.04em",
-              width: "67%",
-              height: "1.15em",
-            }}
-          />
+            {/* Pink highlight — only behind the first line */}
+            <div
+              className="absolute bg-[#d369b8] opacity-25 rounded-xs mx-[16px] my-[0px] px-[2px] py-[0px]"
+              style={{
+                left: "-4%",
+                top: "0.04em",
+                width: "67%",
+                height: "1.15em",
+              }}
+            />
             <strong className="font-semibold">
               Empowering businesses
             </strong>

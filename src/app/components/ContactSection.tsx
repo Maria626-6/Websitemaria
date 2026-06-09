@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { motion, useInView } from "motion/react";
 import ContactFormImage from "../../imports/ContactFormImage/ContactFormImage";
 
@@ -23,13 +23,14 @@ export default function ContactSection() {
 
   return (
     <section
+      id="contact"
       ref={sectionRef}
-      className="relative w-full overflow-hidden flex items-center justify-center"
+      className="relative w-full scroll-mt-[60px] overflow-hidden flex items-center justify-center"
       style={{ background: "#FBF7FC", minHeight: Math.max(scaledH, 600) }}
     >
       {/* Decorative image frame */}
       <div
-        className="absolute top-0 left-0 pointer-events-none"
+        className="absolute mt-4 top-0 left-0 pointer-events-none"
         style={{
           width: `${IMG_W}px`,
           height: `${IMG_H}px`,
@@ -51,15 +52,15 @@ export default function ContactSection() {
 
         {/* Card */}
         <div
-          className="w-full max-w-lg rounded-2xl border border-[#2D0340]/10 bg-white/70 backdrop-blur-md px-8 py-10 flex flex-col gap-6 mt-12"
+          className="w-full max-w-lg  backdrop-blur-md px-8 py-10 flex flex-col gap-6 -mt-40 mb-10"
         >
-        {/* Title */}
-        <h2
-          className="text-[#2D0340] font-bold leading-none text-center mx-[0px] mt-[0px] mb-[31px]"
-          style={{ fontFamily: "Fredoka, sans-serif", fontSize: "clamp(32px,4.5vw,72px)" }}
-        >
-          Let's work together!
-        </h2>
+          {/* Title */}
+          <h2
+            className="text-[#2D0340] font-bold leading-none text-center mx-[0px] mt-[0px] mb-[31px]"
+            style={{ fontFamily: "Fredoka, sans-serif", fontSize: "clamp(38px,5.5vw,80px)" }}
+          >
+            Let's work together!
+          </h2>
           {/* Name */}
           <div className="flex flex-col gap-1.5">
             <label
@@ -70,6 +71,7 @@ export default function ContactSection() {
             </label>
             <input
               type="text"
+              required
               placeholder="Your full name"
               className="w-full rounded-xl border border-[#2D0340]/20 bg-transparent px-4 py-3 text-[#2D0340] placeholder-[#2D0340]/30 outline-none focus:border-[#AD49E1] transition-colors duration-200"
               style={{ fontFamily: "Nunito, sans-serif", fontSize: "clamp(14px,1vw,16px)" }}
@@ -86,6 +88,7 @@ export default function ContactSection() {
             </label>
             <input
               type="email"
+              required
               placeholder="you@example.com"
               className="w-full rounded-xl border border-[#2D0340]/20 bg-transparent text-[#2D0340] placeholder-[#2D0340]/30 outline-none focus:border-[#AD49E1] transition-colors duration-200 px-[16px] py-[12px]"
               style={{ fontFamily: "Nunito, sans-serif", fontSize: "clamp(14px,1vw,16px)" }}
@@ -101,6 +104,7 @@ export default function ContactSection() {
               Message
             </label>
             <textarea
+              required
               placeholder="Tell us about your project..."
               rows={5}
               className="w-full rounded-xl border border-[#2D0340]/20 bg-transparent text-[#2D0340] placeholder-[#2D0340]/30 outline-none focus:border-[#AD49E1] transition-colors duration-200 resize-none px-[16px] py-[0px]"
