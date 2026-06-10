@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import { motion, useInView } from "motion/react";
 import automationSvg from "../../imports/data___automation_image.svg";
 import { motion, useInView } from "motion/react";
 
@@ -13,6 +14,10 @@ export default function AutomationSection() {
       style={{ background: "#FBF7FC", minHeight: "100svh" }}
     >
       {/* Text container — left side */}
+      <motion.div
+        initial={{ opacity: 0, x: -60 }}
+        animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -60 }}
+        transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
       <motion.div
         initial={{ opacity: 0, x: -60 }}
         animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -60 }}

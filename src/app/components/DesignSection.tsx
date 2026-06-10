@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import { motion, useInView } from "motion/react";
 import designSvg from "../../imports/image__design_.svg";
 import { motion, useInView } from "motion/react";
 
