@@ -140,7 +140,8 @@ export default function OurWorkSection() {
 
   return (
     <section
-      className="w-full px-[clamp(32px,6vw,120px)] py-24"
+      id="our-work"
+      className="w-full scroll-mt-[60px] px-[clamp(32px,6vw,120px)] py-24"
       style={{ background: "#F2E2FE" }}
     >
       {/* Heading */}
@@ -159,9 +160,10 @@ export default function OurWorkSection() {
         </h2>
         <p
           className="mt-4 text-[#2D0340]/60 max-w-xl mx-auto"
-          style={{ fontFamily: "Nunito, sans-serif", fontSize: "clamp(14px,1.2vw,20px)", lineHeight: 1.6 }}
+          style={{ fontFamily: "Nunito, sans-serif", fontSize: "clamp(14px,1.2vw,20xpx)", lineHeight: 1.6 }}
         >
-          A selection of projects that reflect our commitment to craft and impact.
+          Where creativity meets technology
+          to solve real business challenges.
         </p>
       </motion.div>
 

@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import { motion, useInView } from "motion/react";
 import automationSvg from "../../imports/data___automation_image.svg";
+import { motion, useInView } from "motion/react";
 
 export default function AutomationSection() {
   const ref = useRef<HTMLElement>(null);
@@ -24,7 +25,7 @@ export default function AutomationSection() {
           className="font-bold leading-none text-[#2D0340]"
           style={{
             fontFamily: "Fredoka, sans-serif",
-            fontSize: "clamp(48px,8.5vw,160px)",
+            fontSize: "clamp(40px,7.5vw,150px)",
           }}
         >
           Automation

@@ -1,18 +1,18 @@
 import { useRef } from "react";
-import { motion, useInView } from "motion/react";
 import designSvg from "../../imports/image__design_.svg";
+import { motion, useInView } from "motion/react";
 
 export default function DesignSection() {
-  const ref = useRef<HTMLElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-100px 0px" });
-
+  const sectionRef = useRef<HTMLElement>(null);
+  const inView = useInView(sectionRef, { once: true, margin: "-60px 0px" });
   return (
     <section
-      ref={ref}
+      ref={sectionRef}
       className="w-full flex items-center justify-center gap-[clamp(40px,2.6vw,120px)] px-[clamp(32px,5vw,120px)] py-20"
       style={{ background: "#9E56E1", minHeight: "100svh" }}
     >
-      {/* Design illustration — left side */}
+      {/* Design illustration — left side (girl + wireframe combined) */}
+      {/* animation for the image & text */}
       <motion.div
         initial={{ opacity: 0, x: -60 }}
         animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -60 }}
@@ -51,7 +51,7 @@ export default function DesignSection() {
             style={{
               fontFamily: "Nunito, sans-serif",
               fontSize: "clamp(16px,1.4vw,26px)",
-              lineHeight: 1.55,
+              lineHeight: 1.6,
             }}
           >
             Crafting solutions that make every interaction meaningful.
@@ -60,7 +60,7 @@ export default function DesignSection() {
             className="text-[#FBF7FC]"
             style={{
               fontFamily: "Nunito, sans-serif",
-              fontSize: "clamp(14px,1.2vw,22px)",
+              fontSize: "clamp(16px,1.4vw,26px)",
               lineHeight: 1.6,
             }}
           >
