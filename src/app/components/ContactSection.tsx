@@ -51,7 +51,7 @@ export default function ContactSection() {
 
         {/* Card */}
         <div
-          className="w-full max-w-lg rounded-2xl border border-[#2D0340]/10 bg-white/70 backdrop-blur-md px-8 py-10 flex flex-col gap-6 mt-12"
+          className="w-full max-w-lg rounded-2xl border border-[#2D0340]/10 bg-white/70 backdrop-blur-md px-8 py-10 flex flex-col gap-6 -mt-26"
         >
         {/* Title */}
         <h2
