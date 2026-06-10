@@ -29,8 +29,8 @@ export default function NavBar() {
           </svg>
         </div>
         <span
-          className="text-[#2d0340] text-xl font-semibold tracking-tight"
-          style={{ fontFamily: "Fredoka, sans-serif" }}
+          className="text-[#2d0340] font-semibold tracking-tight"
+          style={{ fontFamily: "Fredoka, sans-serif", fontSize: "18px" }}
         >
           Maria Illera
         </span>
