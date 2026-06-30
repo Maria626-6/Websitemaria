@@ -4,7 +4,6 @@ import ContactFormImage from "../../imports/ContactFormImage/ContactFormImage";
 
 const IMG_W = 2939.04;
 const IMG_H = 2104.999;
-const FORM_NAME = "contact";
 
 type FormStatus = "idle" | "submitting" | "success" | "error";
 
@@ -29,19 +28,32 @@ export default function ContactSection() {
     e.preventDefault();
     setStatus("submitting");
 
-    const formData = new FormData(e.currentTarget);
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    if (formData.get("bot-field")) {
+      setStatus("success");
+      form.reset();
+      return;
+    }
+
+    const payload = {
+      name: String(formData.get("name") ?? "").trim(),
+      email: String(formData.get("email") ?? "").trim(),
+      message: String(formData.get("message") ?? "").trim(),
+    };
 
     try {
-      const response = await fetch("/", {
+      const response = await fetch("/api/messages", {
         method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(formData as unknown as Record<string, string>).toString(),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
       });
 
       if (!response.ok) throw new Error("Form submission failed");
 
       setStatus("success");
-      e.currentTarget.reset();
+      form.reset();
     } catch {
       setStatus("error");
     }
@@ -76,15 +88,9 @@ export default function ContactSection() {
         className="relative z-10 flex flex-col items-center w-full px-[5px] py-[96px] mx-[0px] my-[-28px]"
       >
         <form
-          name={FORM_NAME}
-          method="POST"
-          data-netlify="true"
-          data-netlify-honeypot="bot-field"
           onSubmit={handleSubmit}
           className="w-full max-w-lg backdrop-blur-md px-8 py-10 flex flex-col gap-6 -mt-40 mb-10"
         >
-          <input type="hidden" name="form-name" value={FORM_NAME} />
-
           {/* Honeypot — spam trap, hidden from users */}
           <div className="hidden" aria-hidden="true">
             <label>
