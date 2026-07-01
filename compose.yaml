@@ -2,56 +2,30 @@
 
 services:
   # ==========================================
-  # 1. DATA BASE (PostgreSQL)
-  # ==========================================
-  database:
-    image: postgres:15-alpine
-    container_name: portfolio_db
-    restart: unless-stopped
-    environment:
-      POSTGRES_USER: ${POSTGRES_USER}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-      POSTGRES_DB: ${POSTGRES_DB}
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-      - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
-    ports:
-      - "5432:5432"
-    networks:
-      - portfolio_network
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
-
-  # ==========================================
-  # 2. BACKEND (Node.js + Express)
+  # 1. BACKEND (Node.js + Express + SQLite)
   # ==========================================
   backend:
-    build: ./backend
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
     container_name: portfolio_backend
     restart: unless-stopped
     environment:
-      DB_HOST: database
-      DB_USER: ${POSTGRES_USER}
-      DB_PASSWORD: ${POSTGRES_PASSWORD}
-      DB_NAME: ${POSTGRES_DB}
-      DB_PORT: 5432
+      SQLITE_DB_PATH: /app/data/portfolio.db
+      INIT_SQL_PATH: /app/database/init.sql
       PORT: 3001
-      # Opcional: para notificaciones por email
       EMAIL_USER: ${EMAIL_USER}
       EMAIL_PASS: ${EMAIL_PASS}
+      EMAIL_TO: ${EMAIL_TO}
+    volumes:
+      - ./database:/app/data
     ports:
       - "3001:3001"
-    depends_on:
-      database:
-        condition: service_healthy
     networks:
       - portfolio_network
 
   # ==========================================
-  # 3. FRONTEND 
+  # 2. FRONTEND
   # ==========================================
   frontend:
     build: ./frontend
@@ -64,15 +38,6 @@ services:
     networks:
       - portfolio_network
 
-# ==========================================
-# VOLUMES (para persistir la base de datos)
-# ==========================================
-volumes:
-  postgres_data:
-
-# ==========================================
-# REDES
-# ==========================================
 networks:
   portfolio_network:
     driver: bridge
