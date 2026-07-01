@@ -42,7 +42,7 @@ export default function ContactSection() {
       email: String(formData.get("email") ?? "").trim(),
       message: String(formData.get("message") ?? "").trim(),
     };
-
+    console.log("Payload del mensaje", payload);
     try {
       const response = await fetch("/api/messages", {
         method: "POST",

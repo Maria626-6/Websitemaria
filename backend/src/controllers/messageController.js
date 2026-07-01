@@ -1,5 +1,6 @@
 const Message = require('../models/message');
 const { validationResult } = require('express-validator');
+const { sendMessageNotification } = require('../services/emailService');
 
 exports.sendMessage = async (req, res) => {
     const errors = validationResult(req);
@@ -18,6 +19,11 @@ exports.sendMessage = async (req, res) => {
             ip_address: req.ip,
             user_agent: req.headers['user-agent']
         });
+        try {
+            await sendMessageNotification({ name, email, phone_number, message });
+        } catch (emailError) {
+            console.error('Error sending email notification:', emailError);
+        }
 
         res.status(201).json({
             success: true,
