@@ -8,17 +8,14 @@ export default function DesignSection() {
   return (
     <section
       ref={sectionRef}
-      className="w-full flex items-center justify-center gap-[clamp(40px,2.6vw,120px)] px-[clamp(32px,5vw,120px)] py-20"
-      style={{ background: "#9E56E1", minHeight: "100svh" }}
+      className="w-full flex flex-col lg:flex-row items-center justify-center gap-8 md:gap-12 lg:gap-[clamp(40px,2.6vw,120px)] px-4 sm:px-8 md:px-12 lg:px-[clamp(32px,5vw,120px)] py-12 sm:py-16 md:py-20 lg:min-h-svh"
+      style={{ background: "#9E56E1" }}
     >
-      {/* Design illustration — left side (girl + wireframe combined) */}
-      {/* animation for the image & text */}
       <motion.div
         initial={{ opacity: 0, x: -60 }}
         animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -60 }}
         transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-        className="shrink-0 flex items-center justify-center"
-        style={{ width: "clamp(240px,38vw,560px)" }}
+        className="w-full max-w-[min(100%,420px)] sm:max-w-[min(100%,480px)] lg:max-w-[560px] shrink-0 flex items-center justify-center"
       >
         <img
           src={designSvg}
@@ -27,30 +24,28 @@ export default function DesignSection() {
         />
       </motion.div>
 
-      {/* Text container — right side */}
       <motion.div
         initial={{ opacity: 0, x: 60 }}
         animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: 60 }}
         transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-        className="flex flex-col items-start shrink-0"
-        style={{ gap: "clamp(48px,6vw,140px)", maxWidth: "clamp(280px,31.6vw,700px)" }}
+        className="w-full max-w-[700px] flex flex-col items-center lg:items-start text-center lg:text-left gap-8 md:gap-10 lg:gap-[clamp(48px,6vw,140px)]"
       >
         <h2
           className="text-[#FBF7FC] font-bold leading-none"
           style={{
             fontFamily: "Fredoka, sans-serif",
-            fontSize: "clamp(48px,8.5vw,160px)",
+            fontSize: "clamp(40px, 10vw, 160px)",
           }}
         >
           Design
         </h2>
 
-        <div className="flex flex-col gap-6">
+        <div className="flex flex-col gap-4 sm:gap-5 md:gap-6">
           <p
             className="text-[#FBF7FC]"
             style={{
               fontFamily: "Nunito, sans-serif",
-              fontSize: "clamp(16px,1.4vw,26px)",
+              fontSize: "clamp(15px, 2.5vw, 26px)",
               lineHeight: 1.6,
             }}
           >
@@ -60,7 +55,7 @@ export default function DesignSection() {
             className="text-[#FBF7FC]"
             style={{
               fontFamily: "Nunito, sans-serif",
-              fontSize: "clamp(16px,1.4vw,26px)",
+              fontSize: "clamp(15px, 2.5vw, 26px)",
               lineHeight: 1.6,
             }}
           >
