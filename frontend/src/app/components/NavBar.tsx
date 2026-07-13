@@ -38,6 +38,7 @@ export default function NavBar() {
 
       {/* Links */}
       <div className="flex items-center gap-8">
+       
         <a
           href="#our-work"
           className="text-[#2d0340] text-base font-medium transition-opacity hover:opacity-70"

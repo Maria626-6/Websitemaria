@@ -9,22 +9,20 @@ export default function AutomationSection() {
   return (
     <section
       ref={sectionRef}
-      className="w-full flex items-center justify-center gap-[clamp(40px,2.6vw,120px)] px-[clamp(32px,5vw,120px)] py-20"
-      style={{ background: "#FBF7FC", minHeight: "100svh" }}
+      className="w-full flex flex-col lg:flex-row items-center justify-center gap-8 md:gap-12 lg:gap-[clamp(40px,2.6vw,120px)] px-4 sm:px-8 md:px-12 lg:px-[clamp(32px,5vw,120px)] py-12 sm:py-16 md:py-20 lg:min-h-svh"
+      style={{ background: "#FBF7FC" }}
     >
-      {/* Text container — left side */}
       <motion.div
         initial={{ opacity: 0, x: -60 }}
         animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -60 }}
         transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-        className="flex flex-col justify-center items-start shrink-0"
-        style={{ gap: "clamp(48px,6vw,140px)", maxWidth: "clamp(280px,31.6vw,700px)" }}
+        className="w-full max-w-[700px] order-1 lg:order-none flex flex-col justify-center items-center lg:items-start text-center lg:text-left gap-8 md:gap-10 lg:gap-[clamp(48px,6vw,140px)]"
       >
         <h2
           className="font-bold leading-none text-[#2D0340]"
           style={{
             fontFamily: "Fredoka, sans-serif",
-            fontSize: "clamp(40px,7.5vw,150px)",
+            fontSize: "clamp(36px, 9vw, 150px)",
           }}
         >
           Automation
@@ -34,7 +32,7 @@ export default function AutomationSection() {
           className="text-[#2D0340]"
           style={{
             fontFamily: "Nunito, sans-serif",
-            fontSize: "clamp(16px,1.4vw,26px)",
+            fontSize: "clamp(15px, 2.5vw, 26px)",
             lineHeight: 1.6,
           }}
         >
@@ -43,17 +41,16 @@ export default function AutomationSection() {
         </p>
       </motion.div>
 
-      {/* Automation image — right side */}
       <motion.div
         initial={{ opacity: 0, x: 60 }}
         animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: 60 }}
         transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-        className="flex-1 flex items-center justify-center ml-26 min-w-0 max-w-[50%]"
+        className="w-full max-w-[min(100%,420px)] sm:max-w-[min(100%,480px)] lg:flex-1 lg:max-w-[50%] order-2 lg:order-none flex items-center justify-center min-w-0"
       >
         <img
           src={automationSvg}
           alt="Data and automation illustration"
-          className="w-full h-auto object-contain pl-[clamp(24px,3vw,64px)]"
+          className="w-full h-auto object-contain lg:pl-[clamp(16px,3vw,64px)]"
         />
       </motion.div>
     </section>
