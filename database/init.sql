@@ -1,29 +1,20 @@
--- database/init.sql
-
--- Crear tabla de mensajes
+-- database/init.sql (SQLite)
 CREATE TABLE IF NOT EXISTS messages (
-    id SERIAL PRIMARY KEY,
-    name VARCHAR(100) NOT NULL,
-    email VARCHAR(100) NOT NULL,
-    phone_number VARCHAR(50),
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    email TEXT NOT NULL,
+    phone_number TEXT,
     message TEXT NOT NULL,
-    read BOOLEAN DEFAULT FALSE,
-    replied BOOLEAN DEFAULT FALSE,
-    date_sent TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    ip_address VARCHAR(45),
+    read INTEGER DEFAULT 0,
+    replied INTEGER DEFAULT 0,
+    date_sent DATETIME DEFAULT CURRENT_TIMESTAMP,
+    ip_address TEXT,
     user_agent TEXT
 );
-
--- Índices para búsquedas rápidas
-CREATE INDEX idx_messages_email ON messages(email);
-CREATE INDEX idx_messages_date ON messages(date_sent DESC);
-CREATE INDEX idx_messages_leido ON messages(read);
-
--- Crear tabla de logs (opcional, para auditoría)
 CREATE TABLE IF NOT EXISTS message_logs (
-    id SERIAL PRIMARY KEY,
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
     message_id INTEGER REFERENCES messages(id),
-    action VARCHAR(50),
-    done_by VARCHAR(100),
-    date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    action TEXT,
+    done_by TEXT,
+    date DATETIME DEFAULT CURRENT_TIMESTAMP
 );
