@@ -1,11 +1,14 @@
 FROM node:18-alpine
 
+RUN apk add --no-cache python3 make g++
+
 WORKDIR /app
 
-COPY package*.json ./
+COPY backend/package*.json ./
 RUN npm ci --only=production
 
-COPY . .
+COPY backend/ ./
+COPY database/init.sql ./database/init.sql
 
 EXPOSE 3001
 
