@@ -1,10 +1,1 @@
-{
-    "sqltools.connections": [
-        {
-            "previewLimit": 50,
-            "driver": "SQLite",
-            "name": "portfolio.db",
-            "database": "${workspaceFolder:Websitemaria}/database/portfolio.db"
-        }
-    ]
-}
+{}
