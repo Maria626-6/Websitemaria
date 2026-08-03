@@ -181,7 +181,7 @@ export default function OurWorkSection() {
           className="text-[#2D0340] font-bold leading-none"
           style={{ fontFamily: "Fredoka, sans-serif", fontSize: "clamp(48px,8.5vw,120px)" }}
         >
-          Our Work
+          My Work
         </h2>
         <p
           className="mt-4 text-[#2D0340]/60 max-w-xl mx-auto"
