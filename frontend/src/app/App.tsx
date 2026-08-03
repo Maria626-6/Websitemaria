@@ -2,7 +2,7 @@ import NavBar from "./components/NavBar";
 import Hero from "./components/Hero";
 import DesignSection from "./components/DesignSection";
 import AutomationSection from "./components/AutomationSection";
-import OurWorkSection from "./components/OurWorkSection";
+import MyWorkSection from "./components/MyWorkSection";
 import ContactSection from "./components/ContactSection";
 
 export default function App() {
@@ -14,7 +14,7 @@ export default function App() {
         <Hero />
         <DesignSection />
         <AutomationSection />
-        <OurWorkSection />
+        <MyWorkSection />
         <ContactSection />
       </div>
     </div>

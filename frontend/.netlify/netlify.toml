@@ -1,0 +1,34 @@
+plugins = []
+redirects = []
+
+[functions]
+
+[functions."*"]
+
+[build]
+publish = "C:\\Users\\bemil\\Documents\\website\\Websitemaria\\frontend\\dist"
+publishOrigin = "ui"
+commandOrigin = "ui"
+base = "C:\\Users\\bemil\\Documents\\website\\Websitemaria\\frontend"
+command = "npm run build"
+
+[build.environment]
+
+[build.processing]
+
+[build.processing.css]
+
+[build.processing.html]
+
+[build.processing.images]
+
+[build.processing.js]
+
+[build.services]
+
+[[headers]]
+for = "/*"
+
+[headers.values]
+Cross-Origin-Opener-Policy = "same-origin"
+Cross-Origin-Embedder-Policy = "require-corp"
