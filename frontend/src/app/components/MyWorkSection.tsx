@@ -166,7 +166,7 @@ export default function OurWorkSection() {
 
   return (
     <section
-      id="our-work"
+      id="my-work"
       className="w-full scroll-mt-[60px] px-[clamp(32px,6vw,120px)] py-24"
       style={{ background: "#F2E2FE" }}
     >
