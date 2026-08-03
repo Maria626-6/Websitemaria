@@ -2,7 +2,7 @@
 
 services:
   # ==========================================
-  # 1. BACKEND (Node.js + Express + SQLite)
+  # 1. BACKEND (Node.js + Express)
   # ==========================================
   backend:
     build:
@@ -11,14 +11,7 @@ services:
     container_name: portfolio_backend
     restart: unless-stopped
     environment:
-      SQLITE_DB_PATH: /app/data/portfolio.db
-      INIT_SQL_PATH: /app/database/init.sql
       PORT: 3001
-      EMAIL_USER: ${EMAIL_USER}
-      EMAIL_PASS: ${EMAIL_PASS}
-      EMAIL_TO: ${EMAIL_TO}
-    volumes:
-      - ./database:/app/data
     ports:
       - "3001:3001"
     networks:
