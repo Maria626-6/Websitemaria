@@ -166,7 +166,7 @@ export default function OurWorkSection() {
 
   return (
     <section
-      id="our-work"
+      id="my-work"
       className="w-full scroll-mt-[60px] px-[clamp(32px,6vw,120px)] py-24"
       style={{ background: "#F2E2FE" }}
     >
@@ -181,7 +181,7 @@ export default function OurWorkSection() {
           className="text-[#2D0340] font-bold leading-none"
           style={{ fontFamily: "Fredoka, sans-serif", fontSize: "clamp(48px,8.5vw,120px)" }}
         >
-          Our Work
+          My Work
         </h2>
         <p
           className="mt-4 text-[#2D0340]/60 max-w-xl mx-auto"

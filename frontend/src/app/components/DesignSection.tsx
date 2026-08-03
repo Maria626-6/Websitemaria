@@ -40,7 +40,7 @@ export default function DesignSection() {
           Design
         </h2>
 
-        <div className="flex flex-col gap-4 sm:gap-5 md:gap-6">
+        <div className="flex flex-col gap-0 sm:gap-2 md:gap-4">
           <p
             className="text-[#FBF7FC]"
             style={{

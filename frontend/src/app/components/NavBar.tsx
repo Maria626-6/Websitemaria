@@ -40,11 +40,11 @@ export default function NavBar() {
       <div className="flex items-center gap-8">
        
         <a
-          href="#our-work"
+          href="#my-work"
           className="text-[#2d0340] text-base font-medium transition-opacity hover:opacity-70"
           style={{ fontFamily: "Fredoka, sans-serif" }}
         >
-          Our Work
+          My Work
         </a>
 
         <a
