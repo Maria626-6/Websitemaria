@@ -20,7 +20,7 @@ const projects: Project[] = [
       "A fragmented storefront ran reporting across three tools. Hand-crafted a live analytics dashboard that unifies sales, inventory risk, and channel mix — giving operators a single pulse on revenue in under a second.",
     tags: ["Data", "Vite", "Netlify Functions"],
     accent: "#AD49E1",
-    href: "https://imaginative-pony-7763ea.netlify.app",
+    href: "https://maria-commerce-pulse.netlify.app/",
   },
   {
     id: 2,
@@ -83,9 +83,8 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
       initial={{ opacity: 0, y: 60 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 60 }}
       transition={{ duration: 0.6, delay: index * 0.12, ease: [0.22, 1, 0.36, 1] }}
-      className={`group relative flex flex-col justify-between rounded-2xl border border-[#2D0340]/10 bg-white/60 backdrop-blur-sm p-8 overflow-hidden ${
-        isLink ? "cursor-pointer hover:border-[#2D0340]/25 transition-colors" : "cursor-default"
-      }`}
+      className={`group relative flex flex-col justify-between rounded-2xl border border-[#2D0340]/10 bg-white/60 backdrop-blur-sm p-8 overflow-hidden ${isLink ? "cursor-pointer hover:border-[#2D0340]/25 transition-colors" : "cursor-default"
+        }`}
       style={{ minHeight: 260 }}
     >
       {isLink ? (
